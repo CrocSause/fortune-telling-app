@@ -18,19 +18,49 @@ export default function App() {
   function revealFortune() {
     const randomIndex = Math.floor(Math.random() * fortunes.length);
     setFortune(fortunes[randomIndex]);
-    setTimeout(() => setFortune(""), 5000); // clears fortune after 10s
+    setTimeout(() => setFortune(""), 5000); // clears fortune after 5s
   }
 
   return (
-    <div className="app">
-      <h1>🔮 Fortune Teller</h1>
-      <p>Ask your question and receive your fortune...</p>
-      <button onClick={revealFortune}>Reveal My Fortune</button>
-      {fortune && (
-        <div className="fortune-box">
-          <p className="fortune-text">{fortune}</p>
-        </div>
-      )}
-    </div>
+    <>
+      <div className="stars"></div>
+      <div className="twinkling"></div>
+
+      <div className="blobs">
+        <div className="blob blob1"></div>
+        <div className="blob blob2"></div>
+        <div className="blob blob3"></div>
+        <svg>
+          <filter id="goo">
+            <feGaussianBlur
+              in="SourceGraphic"
+              stdDeviation="20"
+              result="blur"
+            />
+            <feColorMatrix
+              in="blur"
+              mode="matrix"
+              values="1 0 0 0 0  
+                      0 1 0 0 0  
+                      0 0 1 0 0  
+                      0 0 0 30 -15"
+              result="goo"
+            />
+            <feBlend in="SourceGraphic" in2="goo" />
+          </filter>
+        </svg>
+      </div>
+
+      <div className="app">
+        <h1>Fortune Teller</h1>
+        <p>Ask your question and receive your fortune...</p>
+        <button onClick={revealFortune}>Reveal My Fortune</button>
+        {fortune && (
+          <div className="fortune-box">
+            <p className="fortune-text">{fortune}</p>
+          </div>
+        )}
+      </div>
+    </>
   );
 }
