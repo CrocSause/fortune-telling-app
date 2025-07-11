@@ -51,14 +51,26 @@ export default function App() {
         </svg>
       </div>
 
+      {/* 🔮 Floating Crystal Ball */}
+      <div className="crystal-ball-container">
+        <img
+          src="/CrystalBall.png"
+          alt="Crystal Ball"
+          className="crystal-ball"
+        />
+      </div>
+
       <div className="app">
         <h1>Fortune Teller</h1>
         <p>Ask your question and receive your fortune...</p>
         <button onClick={revealFortune}>Reveal My Fortune</button>
         {fortune && (
-          <div className="fortune-box">
-            <p className="fortune-text">{fortune}</p>
-          </div>
+          <>
+            <div className="crystal-ball"></div>
+            <div className="fortune-box">
+              <p className="fortune-text">{fortune}</p>
+            </div>
+          </>
         )}
       </div>
     </>

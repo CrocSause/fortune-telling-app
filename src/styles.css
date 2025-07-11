@@ -155,3 +155,39 @@ button:hover {
   background: rgba(255, 255, 255, 0.4);
   transform: scale(1.05);
 }
+
+.crystal-ball-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  animation: floatBall 6s ease-in-out infinite;
+}
+
+.crystal-ball {
+  width: 250px;
+  height: auto;
+  animation: pulseGlow 4s ease-in-out infinite;
+  filter: drop-shadow(0 0 40px rgba(200, 160, 255, 0.6));
+  transition: filter 0.3s ease;
+}
+
+@keyframes floatBall {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes pulseGlow {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 40px rgba(200, 160, 255, 0.6));
+  }
+  50% {
+    filter: drop-shadow(0 0 70px rgba(255, 200, 255, 0.8));
+  }
+}
