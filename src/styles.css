@@ -46,11 +46,13 @@ body {
   padding: 0;
   font-family: "Manrope", sans-serif;
   color: white;
-  background: radial-gradient(circle at top left,
+  background: radial-gradient(
+    circle at top left,
     #f0d6ff,
     #d6b3ff,
     #a87ce0,
-    #7d57c1);
+    #7d57c1
+  );
   background-size: 300% 300%;
   background-position: 0% 50%;
   animation: gradientFlow 30s ease-in-out infinite;
@@ -92,6 +94,8 @@ body {
 
 .blobs {
   position: fixed;
+  top: 0;
+  left: 0;
   width: 100vw;
   height: 100vh;
   overflow: hidden;
