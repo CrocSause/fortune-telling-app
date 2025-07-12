@@ -44,26 +44,27 @@ p {
 body {
   margin: 0;
   padding: 0;
-  overflow: hidden;
   font-family: "Manrope", sans-serif;
   color: white;
-  background: radial-gradient(circle at 20% 20%, #d6b3ff, #a87ce0);
-  animation: gradientFlow 20s ease-in-out infinite alternate;
-  background-size: 400% 400%;
+  background: radial-gradient(circle at top left,
+    #f0d6ff,
+    #d6b3ff,
+    #a87ce0,
+    #7d57c1);
+  background-size: 300% 300%;
+  background-position: 0% 50%;
+  animation: gradientFlow 30s ease-in-out infinite;
 }
 
 @keyframes gradientFlow {
   0% {
     background-position: 0% 50%;
-    background: radial-gradient(circle at 20% 20%, #d6b3ff, #a87ce0);
   }
   50% {
     background-position: 100% 50%;
-    background: radial-gradient(circle at 80% 80%, #c4a0ff, #7d57c1);
   }
   100% {
     background-position: 0% 50%;
-    background: radial-gradient(circle at 40% 40%, #e0c6ff, #b58cf2);
   }
 }
 
