@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import "./styles.css";
+import BackgroundBlobs from "./components/backgroundBlobs";
+import CrystalBall from "./components/CrystalBall";
+import FortuneCard from "./components/FortuneCard";
 
 export default function App() {
   const [fortune, setFortune] = useState("");
@@ -18,61 +21,16 @@ export default function App() {
   function revealFortune() {
     const randomIndex = Math.floor(Math.random() * fortunes.length);
     setFortune(fortunes[randomIndex]);
-    setTimeout(() => setFortune(""), 5000); // clears fortune after 5s
+
+    // Optional: clear after 5s
+    setTimeout(() => setFortune(""), 5000);
   }
 
   return (
     <>
-      <div className="stars"></div>
-      <div className="twinkling"></div>
-
-      <div className="blobs">
-        <div className="blob blob1"></div>
-        <div className="blob blob2"></div>
-        <div className="blob blob3"></div>
-        <svg>
-          <filter id="goo">
-            <feGaussianBlur
-              in="SourceGraphic"
-              stdDeviation="20"
-              result="blur"
-            />
-            <feColorMatrix
-              in="blur"
-              mode="matrix"
-              values="1 0 0 0 0  
-                      0 1 0 0 0  
-                      0 0 1 0 0  
-                      0 0 0 30 -15"
-              result="goo"
-            />
-            <feBlend in="SourceGraphic" in2="goo" />
-          </filter>
-        </svg>
-      </div>
-
-      {/* 🔮 Floating Crystal Ball */}
-      <div className="crystal-ball-container">
-        <img
-          src="/CrystalBall.png"
-          alt="Crystal Ball"
-          className="crystal-ball"
-        />
-      </div>
-
-      <div className="app">
-        <h1>Fortune Teller</h1>
-        <p>Ask your question and receive your fortune...</p>
-        <button onClick={revealFortune}>Reveal My Fortune</button>
-        {fortune && (
-          <>
-            <div className="crystal-ball"></div>
-            <div className="fortune-box">
-              <p className="fortune-text">{fortune}</p>
-            </div>
-          </>
-        )}
-      </div>
+      <BackgroundBlobs />
+      <CrystalBall />
+      <FortuneCard fortune={fortune} onReveal={revealFortune} />
     </>
   );
 }
