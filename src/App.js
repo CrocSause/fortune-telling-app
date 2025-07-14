@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./styles.css";
-import TarotReading from "./components/tarot-cards/TarotReading";
 import BackgroundBlobs from "./components/fortune-teller/backgroundBlobs";
 import CrystalBall from "./components/fortune-teller/CrystalBall";
 import FortuneCard from "./components/fortune-teller/FortuneCard";
@@ -29,9 +28,6 @@ export default function App() {
 
   return (
     <>
-      <div className="container">
-        <TarotReading />
-      </div>
       <BackgroundBlobs />
       <CrystalBall />
       <FortuneCard fortune={fortune} onReveal={revealFortune} />
